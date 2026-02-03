@@ -1,0 +1,207 @@
+DOCUMENTAÇÃO COMPLETA DE COMMITS
+PADRÃO PARA EMPRESA E PROJETOS PESSOAIS
+
+================================================================
+1. O QUE É UM COMMIT
+================================================================
+Um commit é um registro permanente de mudanças no código.
+Ele cria um ponto no histórico do projeto que permite:
+- Rastrear alterações
+- Reverter erros
+- Entender decisões técnicas
+- Trabalhar em equipe com segurança
+
+Um bom commit deve responder claramente:
+- O que foi feito?
+- Por que foi feito?
+- O que isso impacta no sistema?
+
+================================================================
+2. REGRAS UNIVERSAIS (OBRIGATÓRIAS)
+================================================================
+Essas regras valem para QUALQUER projeto:
+
+- Um commit deve fazer apenas UMA coisa
+- Commits devem ser pequenos e objetivos
+- Nunca commitar código quebrado
+- Testar antes de commitar
+- Não misturar tipos de mudança (feature + fix)
+
+Evite mensagens genéricas como:
+update
+ajustes
+teste
+final
+commit 1
+correções gerais
+
+Essas mensagens não explicam nada no histórico.
+
+================================================================
+3. PADRÃO DE COMMITS EM EMPRESA
+================================================================
+
+O padrão mais utilizado é o Conventional Commits.
+
+------------------------------------------------
+3.1 Estrutura do commit
+------------------------------------------------
+tipo(escopo opcional): descrição curta no presente
+
+Exemplo:
+feat(auth): adiciona autenticação com JWT
+
+------------------------------------------------
+3.2 Tipos de commit
+------------------------------------------------
+feat     -> nova funcionalidade para o usuário
+fix      -> correção de bug
+docs     -> alterações em documentação
+style    -> formatação (sem alterar lógica)
+refactor -> refatoração sem mudar comportamento
+test     -> criação ou ajuste de testes
+chore    -> tarefas internas e configurações
+build    -> mudanças em build ou dependências
+ci       -> mudanças em pipelines CI/CD
+perf     -> melhoria de performance
+
+------------------------------------------------
+3.3 Exemplos corretos
+------------------------------------------------
+feat(user): cria cadastro de usuários
+fix(login): corrige erro de autenticação inválida
+docs(readme): documenta processo de instalação
+refactor(service): simplifica lógica de autenticação
+style(css): ajusta identação do arquivo principal
+test(api): adiciona testes para endpoint de login
+chore(env): configura variáveis de ambiente
+
+================================================================
+4. CORPO DO COMMIT (QUANDO USAR)
+================================================================
+Use corpo de commit quando:
+- A mudança for grande
+- Envolver regras de negócio
+- Impactar outras partes do sistema
+
+Exemplo:
+feat(order): cria endpoint de pedidos
+
+- valida dados de entrada
+- integra com serviço de pagamento
+- retorna status detalhado da operação
+
+================================================================
+5. COMMITS VINCULADOS A TAREFAS
+================================================================
+Muito comum em empresas com Jira, ClickUp, Trello, etc.
+
+Exemplo:
+fix(cart): corrige cálculo de total
+
+Refs: TASK-321
+
+Isso permite rastrear código ↔ tarefa ↔ requisito.
+
+================================================================
+6. FLUXO CORRETO EM EMPRESA
+================================================================
+Fluxo padrão:
+
+git status
+git add .
+git commit -m "feat(auth): adiciona login com JWT"
+git push origin minha-branch
+
+Boas práticas:
+- Nunca commitar direto na main
+- Sempre trabalhar em branch
+- Abrir Pull Request para revisão
+- Corrigir feedback antes do merge
+
+================================================================
+7. COMMITS EM PROJETOS PESSOAIS
+================================================================
+Projetos pessoais permitem mais flexibilidade, mas manter padrão
+te torna mais profissional e organizado.
+
+------------------------------------------------
+7.1 Estrutura recomendada
+------------------------------------------------
+tipo: descrição
+
+Exemplos:
+feat: cria página de login
+fix: ajusta validação do formulário
+refactor: reorganiza estrutura de pastas
+style: padroniza CSS do projeto
+chore: configura ambiente inicial
+
+================================================================
+8. COMMITS DURANTE ESTUDO
+================================================================
+Durante aprendizado, commits podem ser mais explicativos:
+
+feat: implementa primeiro CRUD de usuários
+feat: aprende uso de async e await
+chore: configura banco de dados local
+
+Isso ajuda a revisar sua evolução depois.
+
+================================================================
+9. COMMITS PEQUENOS (MELHOR PRÁTICA)
+================================================================
+Evite commits gigantes.
+
+Errado:
+- 10 arquivos
+- várias funcionalidades
+- várias correções juntas
+
+Correto:
+git add arquivo.js
+git commit -m "feat: adiciona função de validação"
+
+Isso facilita:
+- Revisão
+- Debug
+- Reversão de código
+
+================================================================
+10. ERROS COMUNS E COMO EVITAR
+================================================================
+Erro: Commitar tudo de uma vez
+Solução: Dividir em commits menores
+
+Erro: Mensagem confusa
+Solução: Descrever claramente a mudança
+
+Erro: Commitar arquivos desnecessários
+Solução: Usar git add arquivo_especifico
+
+Erro: Commitar direto na main
+Solução: Sempre usar branch
+
+================================================================
+11. BOAS PRÁTICAS AVANÇADAS
+================================================================
+- Usar verbos no presente (adiciona, corrige, remove)
+- Preferir inglês em projetos profissionais
+- Manter histórico limpo
+- Revisar código antes do commit
+
+Para corrigir a última mensagem:
+git commit --amend
+
+Para desfazer commit sem perder código:
+git reset --soft HEAD~1
+
+================================================================
+12. RESUMO FINAL
+================================================================
+- Commit é documentação do código
+- Um commit = uma responsabilidade
+- Commit bem feito evita bugs e retrabalho
+- Histórico limpo demonstra profissionalismo
+
+Um bom commit explica o código sem precisar abrir o arquivo.
